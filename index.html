@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal CV</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cursor-effect"></div>
+    <div class="cv-container layout-1" id="cvContainer">
+        <header>
+            <h1>Nguyễn Đại Dương</h1>
+            <p>Web3 Developer & Researcher</p>
+        </header>
+        <img id="profilePic" class="profile-picture" src="" alt="Profile Picture">
+
+        <section class="fun-fact">
+            <h2>Fun Fact</h2>
+            <p id="funFact"></p>
+        </section>
+        
+        <section class="about">
+            <h2>About Me</h2>
+            <p>Computer science student with a logical mindset and experience in back-end design and development. Passionate about creating responsive, user-focused applications and eager to advance in the IT field.</p>
+        </section>
+
+        <section class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>JavaScript, TypeScript</li>
+                <li>React, NestJS</li>
+                <li>Solidity, Web3.js</li>
+            </ul>
+        </section>
+
+        <section class="experience">
+            <h2>Experience</h2>
+            <ul>
+                <li>Web3 Backend Developer at AnyAxis Labs</li>
+                <li>Web3 RnD at AnyAxis Labs</li>
+            </ul>
+        </section>
+
+        <section class="projects">
+            <h2>Projects</h2>
+            <ul>
+                <li><a href="https://github.com/ItsK4tune/Alarmbot">Telegram Alarmbot</a></li>
+                <li><a href="https://github.com/ItsK4tune/ahdcinema-be">Movie theater management</a></li>
+                <li>Social aggregate on web3</li>
+                <li><a href="https://dorahacks.io/buidl/16632/">BiUWU</a></li>
+                <li><a href="https://dorahacks.io/buidl/23292">AgentWork</a></li>
+            </ul>
+        </section>
+
+        <section class="certifications">
+            <h2>Certifications</h2>
+            <ul>
+                <li>AWS Certified Solutions Architect</li>
+                <li>Google AI Developer</li>
+            </ul>
+        </section>
+
+        <section class="hobbies">
+            <h2>Hobbies</h2>
+            <ul>
+                <li>Sport</li>
+                <li>Study</li>
+            </ul>
+        </section>
+
+        <button onclick="changeLayout()">Change Layout</button>
+    </div>
+
+    <script>
+        let currentLayout = 1;
+
+        function changeLayout() {
+            const container = document.getElementById("cvContainer");
+            container.classList.remove(`layout-${currentLayout}`);
+            document.body.classList.remove(`bg-layout-${currentLayout}`);
+            
+            currentLayout = (currentLayout % 3) + 1;
+            
+            container.classList.add(`layout-${currentLayout}`);
+            document.body.classList.add(`bg-layout-${currentLayout}`);
+        }
+
+        // Randomize profile picture
+        window.onload = function() {
+            const profilePics = ["images/profile1.jpg", "images/profile2.jpg", "images/profile3.jpg"];
+            document.getElementById("profilePic").src = profilePics[Math.floor(Math.random() * profilePics.length)];
+
+            const funFacts = [
+                "The first computer virus was created in 1986!",
+                "JavaScript was created in just 10 days.",
+                "The Apollo 11 guidance computer had less processing power than a modern smartphone!",
+                "The first website is still online: info.cern.ch",
+                "A group of flamingos is called a 'flamboyance'!"
+            ];
+            document.getElementById("funFact").textContent = funFacts[Math.floor(Math.random() * funFacts.length)];
+        };
+
+        // Mouse movement effect
+        document.addEventListener("mousemove", (event) => {
+            const cursorEffect = document.querySelector(".cursor-effect");
+            cursorEffect.style.top = `${event.clientY}px`;
+            cursorEffect.style.left = `${event.clientX}px`;
+        });
+    </script>
+</body>
+</html>

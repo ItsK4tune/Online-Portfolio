@@ -1,0 +1,172 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+    overflow: auto;
+}
+.cv-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+header {
+    background: #0073e6;
+    color: white;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    text-align: center;
+}
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px 0;
+    object-fit: cover;
+    border: 3px solid #0073e6;
+}
+section {
+    margin: 20px 0;
+    text-align: left;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.5s;
+}
+.projects, .certifications, .hobbies {
+    background: #e6e6e6;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+ul li {
+    background: #e6e6e6;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.3s, background 0.3s;
+}
+ul li:hover {
+    transform: scale(1.05);
+    background: #d0d0d0;
+}
+/* Button animation */
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #0073e6;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+button:hover {
+    background: #005bb5;
+    transform: scale(1.1);
+}
+button:active {
+    transform: scale(0.95);
+}
+/* Mouse move effect */
+.cursor-effect {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: rgba(0, 115, 230, 0.7);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.1s;
+    transform: translate(-50%, -50%);
+}
+/* Layout 2 - Terminal Style */
+.layout-2 {
+    background: black;
+    color: green;
+    font-family: "Courier New", monospace;
+    text-align: left;
+    box-shadow: none;
+    border: 2px solid green;
+    padding: 20px;
+}
+.layout-2 header {
+    background: black;
+    color: lime;
+    border-bottom: 2px solid green;
+}
+.layout-2 ul li {
+    background: black;
+    color: lime;
+    border-left: 2px solid lime;
+    padding-left: 10px;
+}
+/* Layout 3 - VSCode Style */
+.layout-3 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background: #1e1e1e;
+    color: #dcdcdc;
+    font-family: Consolas, "Courier New", monospace;
+    gap: 20px;
+    padding: 20px;
+}
+.layout-3 header {
+    grid-column: span 2;
+    background: #007acc;
+    color: white;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+}
+.layout-3 .about, .layout-3 .skills, .layout-3 .projects, .layout-3 .certifications, .layout-3 .hobbies {
+    background: #252526;
+    padding: 15px;
+    border-radius: 5px;
+}
+.layout-3 .experience {
+    grid-column: span 2;
+    background: #333;
+    padding: 15px;
+    border-radius: 5px;
+}
+.layout-3 ul li {
+    background: #252526;
+    color: #dcdcdc;
+    padding: 10px;
+    border-left: 4px solid #007acc;
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .cv-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+    .layout-3 {
+        grid-template-columns: 1fr;
+    }
+}
